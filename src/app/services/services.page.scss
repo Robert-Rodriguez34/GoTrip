@@ -1,0 +1,414 @@
+:host {
+  --gt-bg: #1c1c1e;
+  --gt-surface: #2c2c2e;
+  --gt-surface-2: #3a3a3d;
+  --gt-red: #ffffff;
+  --gt-text: #ffffff;
+  --gt-muted: #a1a1a6;
+  --gt-border: #48484a;
+}
+
+/* =========================================
+   ENCABEZADO GOTRIP
+========================================= */
+
+.services-header {
+  background: var(--gt-bg);
+  box-shadow: none;
+}
+
+.services-header::after {
+  display: none;
+}
+
+.top-header {
+  width: 100%;
+  min-height: 65px;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  background: var(--gt-bg);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+/* MENÚ LATERAL */
+
+.menu-button {
+  display: flex;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+
+  --color: #ffffff;
+  --background: var(--gt-surface);
+  --border-radius: 50%;
+  --padding-start: 0;
+  --padding-end: 0;
+
+  margin: 0;
+}
+
+/* LOGO Y NOMBRE */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+
+  color: var(--gt-text);
+  font-family: Georgia, serif;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.brand img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+/* NOTIFICACIONES */
+
+.notification-button {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--gt-surface);
+  cursor: pointer;
+}
+
+.notification-button img {
+  width: 19px;
+  height: 19px;
+  object-fit: contain;
+}
+
+ion-content.services-content {
+  --background: var(--gt-bg);
+  --color: var(--gt-text);
+  --padding-bottom: 25px;
+}
+
+.title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 16px 23px;
+}
+
+.eyebrow {
+  color: var(--gt-muted);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+
+.title-row h1 {
+  color: var(--gt-text);
+  font-size: 1.55rem;
+  font-weight: 800;
+  margin: 6px 0;
+}
+
+.title-row p {
+  color: var(--gt-muted);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.sort-btn {
+  --background: var(--gt-surface);
+  --color: var(--gt-text);
+  --border-radius: 20px;
+  --box-shadow: none;
+
+  font-size: 0.78rem;
+  font-weight: 600;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.section {
+  padding: 0 16px;
+  margin-bottom: 25px;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  gap: 10px;
+}
+
+.section-head h3 {
+  color: var(--gt-text);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.section-description {
+  color: var(--gt-muted);
+  font-size: 0.75rem;
+  margin: 5px 0 0;
+}
+
+.section-arrow {
+  color: var(--gt-muted);
+  font-size: 1.2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.service {
+  margin: 0;
+  background: var(--gt-surface);
+  border-radius: 17px;
+  overflow: hidden;
+  box-shadow: none;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  touch-action: pan-y;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.service img {
+  width: 100%;
+  height: 120px;
+  display: block;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+}
+
+.placeholder {
+  width: 100%;
+  height: 120px;
+  display: grid;
+  place-items: center;
+  background: var(--gt-surface-2);
+  color: var(--gt-red);
+}
+
+.placeholder ion-icon {
+  font-size: 2.5rem;
+}
+
+.service-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+  padding: 12px 10px;
+}
+
+.service-foot span {
+  color: var(--gt-text);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.service-foot small {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  color: var(--gt-muted);
+  font-size: 0.68rem;
+  white-space: nowrap;
+}
+
+.service-foot ion-icon {
+  color: var(--gt-red);
+  font-size: 0.85rem;
+}
+
+.service:active {
+  transform: scale(0.97);
+}
+
+.others {
+  padding: 0;
+  background: transparent;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.other {
+  --background: var(--gt-surface);
+  --color: var(--gt-text);
+  --padding-start: 12px;
+  --inner-padding-end: 12px;
+  --min-height: 105px;
+
+  margin-bottom: 10px;
+  border-radius: 15px;
+  overflow: hidden;
+
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  touch-action: pan-y;
+
+  transition: background 0.2s ease;
+}
+
+.other-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.other-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.other-text strong {
+  display: block;
+  color: var(--gt-text);
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.other-text p {
+  color: var(--gt-muted);
+  font-size: 0.77rem;
+  line-height: 1.4;
+  margin: 0 0 8px;
+}
+
+.other-text small {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--gt-muted);
+  font-size: 0.7rem;
+}
+
+.other-text ion-icon {
+  color: var(--gt-red);
+}
+
+.other-img {
+  position: relative;
+  width: 92px;
+  height: 76px;
+  flex-shrink: 0;
+}
+
+.other-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+  pointer-events: none;
+}
+
+.other-img span {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  padding: 4px 7px;
+  border-radius: 10px;
+  color: white;
+  font-size: 0.6rem;
+  font-weight: 600;
+}
+
+.other:active {
+  --background: var(--gt-surface-2);
+}
+
+.menu-button,
+.notification-button,
+.sort-btn {
+  transition: transform 0.15s ease;
+}
+
+.menu-button:active,
+.notification-button:active {
+  transform: scale(0.95);
+}
+
+.bottom-space {
+  height: 20px;
+}
+
+@media (max-width: 360px) {
+
+  .top-header {
+    padding: 10px 13px;
+  }
+
+  .brand {
+    font-size: 15px;
+    gap: 6px;
+  }
+
+  .brand img {
+    width: 33px;
+    height: 33px;
+  }
+
+  .menu-button,
+  .notification-button {
+    width: 36px;
+    height: 36px;
+  }
+
+  .title-row {
+    padding: 17px 13px 20px;
+  }
+
+  .title-row h1 {
+    font-size: 1.35rem;
+  }
+
+  .section {
+    padding-inline: 13px;
+  }
+
+  .service img,
+  .placeholder {
+    height: 105px;
+  }
+
+  .service-foot {
+    flex-wrap: wrap;
+  }
+
+  .other-img {
+    width: 78px;
+    height: 70px;
+  }
+}

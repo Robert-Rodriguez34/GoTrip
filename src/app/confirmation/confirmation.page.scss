@@ -1,0 +1,116 @@
+
+ion-content {
+  --background: #2b2929;
+}
+
+.confirmation-screen {
+  min-height: 100%;
+  width: 100%;
+  padding: 53px 18px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #2b2929;
+  color: white;
+  box-sizing: border-box;
+  text-align: center;
+  margin-top: 90px;
+}
+
+/* Círculo verde */
+.success-icon {
+  width: 106px;
+  height: 106px;
+  border-radius: 50%;
+  background: #00bd08;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.success-icon img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Mensaje de confirmación */
+.confirmation-screen h1 {
+  font-size: 21px;
+  font-weight: bold;
+  margin: 0 0 8px;
+}
+
+.confirmation-message {
+  font-size: 15px;
+  margin: 0 0 12px;
+}
+
+/* Número de viaje */
+.trip-number {
+  width: 100%;
+  max-width: 205px;
+  min-height: 69px;
+  border-radius: 10px;
+  background: #514d4d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-bottom: 14px;
+}
+
+.trip-number span {
+  font-size: 14px;
+}
+
+.trip-number strong {
+  color: #48baff;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+/* Botones */
+.confirmation-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.confirmation-actions button {
+  width: 103px;
+  height: 30px;
+  padding: 0 12px;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  font-family: Georgia, serif;
+  font-size: 11px;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.my-trips-button {
+  background: #111111;
+}
+
+.home-button {
+  background: #454141;
+}
+
+.my-trips-button {
+  background: #111111;
+}
+
+.home-button {
+  background: #454141;
+}
+ 

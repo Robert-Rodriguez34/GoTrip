@@ -1,27 +1,392 @@
-#container {
-  text-align: center;
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+:host {
+  --gt-bg: #1c1c1e;
+  --gt-surface: #2c2c2e;
+  --gt-surface-2: #3a3a3d;
+  --gt-red: #ffffff;
+  --gt-text: #ffffff;
+  --gt-muted: #a1a1a6;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+/* =========================================
+   FONDO GENERAL
+========================================= */
+
+ion-content.home-content {
+  --background: var(--gt-bg);
+  --color: var(--gt-text);
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
+.home-header {
+  background: var(--gt-bg);
+  box-shadow: none;
+}
 
-  color: #8c8c8c;
+.home-header::after {
+  display: none;
+}
+
+/* =========================================
+   ENCABEZADO GOTRIP - MISMO DISEÑO BOOKING
+========================================= */
+
+.top-header {
+  width: 100%;
+  min-height: 65px;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  background: var(--gt-bg);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+/* Botón del menú */
+.menu-button {
+  display: flex;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+
+  --color: #ffffff;
+  --background: var(--gt-surface);
+  --border-radius: 50%;
+  --padding-start: 0;
+  --padding-end: 0;
 
   margin: 0;
 }
 
-#container a {
-  text-decoration: none;
+/* Logo y nombre */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+
+  color: var(--gt-text);
+  font-family: Georgia, serif;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.brand img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+/* Notificaciones */
+.notification-button {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--gt-surface);
+}
+
+.notification-button img {
+  width: 19px;
+  height: 19px;
+  object-fit: contain;
+}
+
+/* =========================================
+   BUSCADOR
+========================================= */
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  width: calc(100% - 32px);
+  margin: 14px 16px 18px;
+  padding: 12px 14px;
+
+  border: 0;
+  border-radius: 28px;
+  background: var(--gt-surface);
+  color: var(--gt-muted);
+
+  font-family: inherit;
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+.search > ion-icon {
+  font-size: 19px;
+}
+
+.search-text {
+  flex: 1;
+}
+
+.search-later {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 18px;
+  background: #000;
+  color: var(--gt-text);
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+/* =========================================
+   BANNER PRINCIPAL
+========================================= */
+
+.hero {
+  margin: 0 16px 20px;
+  border-radius: 20px;
+  background: var(--gt-surface);
+  box-shadow: none;
+  overflow: hidden;
+
+  ion-card-content {
+    display: flex;
+    align-items: stretch;
+    padding: 0;
+  }
+
+  .hero-text {
+    flex: 1;
+    padding: 18px 14px 18px 18px;
+
+    h2 {
+      margin: 0 0 8px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--gt-text);
+    }
+
+    p {
+      margin: 0 0 14px;
+      font-size: 0.85rem;
+      line-height: 1.4;
+      color: var(--gt-muted);
+    }
+  }
+
+  .hero-btn {
+    --background: #000;
+    --color: var(--gt-text);
+    --border-radius: 18px;
+    margin: 0;
+  }
+
+  .hero-img {
+    width: 42%;
+    object-fit: cover;
+  }
+}
+
+/* =========================================
+   SECCIONES
+========================================= */
+
+.section {
+  padding: 0 16px;
+  margin-bottom: 20px;
+}
+
+.section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+
+  h3 {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--gt-text);
+  }
+}
+
+.view-all {
+  padding: 5px 0;
+  border: 0;
+  background: transparent;
+  color: var(--gt-text);
+  font-family: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+/* =========================================
+   CATEGORÍAS
+========================================= */
+
+.categories {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+
+  padding: 0;
+  border: 0;
+  background: none;
+
+  color: var(--gt-text);
+  font-family: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+
+  img {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--gt-surface-2);
+  }
+}
+
+/* =========================================
+   ÚLTIMOS VIAJES
+========================================= */
+
+.trips {
+  padding: 0;
+  background: transparent;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.trip {
+  --background: var(--gt-surface);
+  --color: var(--gt-text);
+  --padding-start: 12px;
+  --inner-padding-end: 12px;
+  --min-height: 64px;
+
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+
+  h4 {
+    margin: 0 0 2px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--gt-text);
+  }
+
+  p,
+  small {
+    color: var(--gt-muted);
+    font-size: 0.75rem;
+  }
+}
+
+.trip-icon {
+  display: grid;
+  place-items: center;
+
+  width: 38px;
+  height: 38px;
+  margin-inline-end: 12px;
+
+  border-radius: 10px;
+  background: var(--gt-surface-2);
+  color: var(--gt-text);
+  font-size: 1.2rem;
+}
+
+.repeat-btn {
+  --color: var(--gt-text);
+  --border-color: var(--gt-muted);
+  --border-radius: 14px;
+  font-size: 0.7rem;
+}
+
+.empty {
+  padding: 24px 12px;
+  text-align: center;
+  color: var(--gt-muted);
+  font-size: 0.9rem;
+}
+
+/* =========================================
+   ANIMACIONES Y RESPUESTA TÁCTIL
+========================================= */
+
+.menu-button,
+.notification-button,
+.category,
+.view-all,
+.hero-btn,
+.repeat-btn {
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.menu-button:active,
+.notification-button:active,
+.category:active,
+.view-all:active {
+  transform: scale(0.95);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 360px) {
+  .top-header {
+    padding: 10px 13px;
+  }
+
+  .brand {
+    font-size: 15px;
+    gap: 6px;
+  }
+
+  .brand img {
+    width: 33px;
+    height: 33px;
+  }
+
+  .menu-button,
+  .notification-button {
+    width: 36px;
+    height: 36px;
+  }
+
+  .category img {
+    width: 62px;
+    height: 62px;
+  }
+
+  .hero .hero-text {
+    padding: 14px 10px 14px 14px;
+  }
+
+  .hero .hero-text h2 {
+    font-size: 1.05rem;
+  }
+
+  .hero .hero-text p {
+    font-size: 0.78rem;
+  }
 }

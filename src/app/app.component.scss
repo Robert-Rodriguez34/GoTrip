@@ -1,0 +1,119 @@
+
+/* ====================================
+   MENÚ LATERAL GOTRIP
+===================================== */
+
+ion-menu {
+  --width: 265px;
+  --backdrop-opacity: 0.65;
+  --border: none;
+}
+
+.menu-label {
+  text-align: center;
+}
+
+/* Encabezado */
+.menu-header {
+  --background: #242426;
+  --color: #ffffff;
+  --border-width: 0;
+  padding: 12px 8px;
+}
+
+/* Marca */
+.menu-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: #242426;
+
+  img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #3a3a3d;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  strong {
+    color: #ffffff;
+    font-size: 1.15rem;
+    font-weight: 800;
+  }
+
+  small {
+    color: #a1a1a6;
+    font-size: 0.78rem;
+  }
+}
+
+/* Contenido: fondo completamente opaco */
+ion-menu ion-content {
+  --background: #1c1c1e;
+  --color: #ffffff;
+}
+
+/* Lista */
+.menu-list {
+  background: #1c1c1e;
+  padding: 18px 12px;
+}
+
+/* Opciones */
+.menu-list ion-item {
+  --background: #2c2c2e;
+  --background-hover: #3a3a3d;
+  --background-activated: #3a3a3d;
+  --color: #ffffff;
+  --border-radius: 12px;
+  --padding-start: 14px;
+  --inner-padding-end: 12px;
+  --min-height: 54px;
+
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  transition: 0.2s ease;
+}
+
+/* Iconos */
+.menu-list ion-item ion-icon {
+  color: #ffffff;
+  font-size: 1.35rem;
+  margin-right: 12px;
+}
+
+/* Opción seleccionada */
+.menu-list ion-item.selected {
+  --background: #3f3f41;
+  --color: #ffffff;
+
+  border-left: 3px solid #5a5a5c;
+}
+
+/* Icono seleccionado */
+.menu-list ion-item.selected ion-icon {
+  color: #5a8ff8;
+}
+
+/* Texto */
+.menu-list ion-label {
+  color: inherit;
+  font-weight: 600;
+}
+
+/* Flecha de navegación */
+.menu-arrow {
+  color: #77777c !important;
+  font-size: 1rem !important;
+  margin-right: 0 !important;
+}

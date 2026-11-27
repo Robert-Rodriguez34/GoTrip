@@ -1,0 +1,52 @@
+<!-- COMPONENTE IONIC: Contenedor principal de la pantalla de inicio de sesión -->
+
+<ion-content [fullscreen]="true">
+
+  <div class="login-screen">
+
+    <!-- LOGOTIPO Y NOMBRE DE LA APLICACIÓN -->
+    <div class="logo-section">
+      <img src="assets/icon/logo.png" alt="Logo GoTrip">
+      <h1>GoTrip</h1>
+    </div>
+
+    <div class="welcome-section">
+      <h2>Bienvenido de nuevo</h2>
+      <p>Ingrese sus credenciales</p>
+    </div>
+
+    <!-- FORMULARIO DE INICIO DE SESIÓN -->
+    <div class="login-form">
+      <div class="input-container">
+        <input
+          type="email"
+          placeholder="Ingresa tu email"
+          [(ngModel)]="email">
+      </div>
+
+      <div class="input-container password-container">
+        <input
+          [type]="mostrarPassword ? 'text' : 'password'"
+          placeholder="Ingresa tu contraseña"
+          [(ngModel)]="password">
+
+        <button
+          type="button"
+          class="eye-button"
+          (click)="mostrarPassword = !mostrarPassword">
+          {{ mostrarPassword ? '◉' : '◉' }}
+        </button>
+      </div>
+
+      <div class="forgot-password">
+        <a routerLink="/forgot-password">
+          ¿Olvidaste tu contraseña?
+        </a>
+      </div>
+
+      <button class="login-button" (click)="iniciarSesion()">
+        Iniciar sesión
+      </button>
+    </div>
+  </div>
+</ion-content>

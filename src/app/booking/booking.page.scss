@@ -1,0 +1,658 @@
+
+/* =========================================
+   GOTRIP - VARIABLES DE DISEÑO
+========================================= */
+
+:host {
+  --gt-bg: #1c1c1e;
+  --gt-surface: #2c2c2e;
+  --gt-surface-2: #3a3a3d;
+  --gt-accent: #ffffff;
+  --gt-text: #ffffff;
+  --gt-muted: #a1a1a6;
+  --gt-border: #48484a;
+}
+
+/* =========================================
+   CONTENEDOR PRINCIPAL
+========================================= */
+
+ion-content.booking-content {
+  --background: var(--gt-bg);
+  --color: var(--gt-text);
+  --padding-bottom: 30px;
+}
+
+.booking-screen {
+  width: 100%;
+  min-height: 100%;
+  padding-bottom: 25px;
+  background: var(--gt-bg);
+  color: var(--gt-text);
+  box-sizing: border-box;
+}
+
+/* =========================================
+   ENCABEZADO
+========================================= */
+
+.top-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 18px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu-button {
+  --color: var(--gt-text);
+  --background: var(--gt-surface);
+  --border-radius: 12px;
+  width: 40px;
+  height: 40px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--gt-text);
+
+  img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
+
+.notification-button {
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 50%;
+  background: var(--gt-surface);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 19px;
+    height: 19px;
+    object-fit: contain;
+  }
+}
+
+/* =========================================
+   TÍTULO DE LA RESERVA
+========================================= */
+
+.booking-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 12px 18px 22px;
+
+  .eyebrow {
+    color: var(--gt-muted);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+  }
+
+  h1 {
+    margin: 7px 0;
+    color: var(--gt-text);
+    font-size: 1.55rem;
+    font-weight: 800;
+  }
+
+  p {
+    margin: 0;
+    color: var(--gt-muted);
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+}
+
+.heading-icon {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 15px;
+  background: var(--gt-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+  }
+}
+
+/* =========================================
+   TÍTULOS DE SECCIONES
+========================================= */
+
+.section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 15px;
+
+  h2 {
+    margin: 0;
+    color: var(--gt-text);
+    font-size: 1rem;
+    font-weight: 700;
+  }
+}
+
+.status-label,
+.map-label,
+.estimated-label {
+  padding: 6px 10px;
+  border-radius: 15px;
+  background: var(--gt-surface-2);
+  color: var(--gt-muted);
+  font-size: 0.7rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* =========================================
+   TARJETA DE UBICACIONES
+========================================= */
+
+.location-card {
+  margin: 0 16px 22px;
+  padding: 17px;
+  border-radius: 18px;
+  background: var(--gt-surface);
+  box-shadow: none;
+}
+
+.location-field {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+}
+
+.field-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+
+  label {
+    color: var(--gt-muted);
+    font-size: 0.78rem;
+    font-weight: 600;
+  }
+
+  input {
+    width: 100%;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--gt-text);
+    font-family: inherit;
+    font-size: 0.9rem;
+
+    &::placeholder {
+      color: var(--gt-muted);
+      opacity: 1;
+    }
+  }
+}
+
+.location-dot {
+  width: 13px;
+  height: 13px;
+  min-width: 13px;
+  border-radius: 50%;
+  display: block;
+}
+
+.pickup-dot {
+  background: #ffffff;
+  box-shadow: 0 0 0 5px #ffffff20;
+}
+
+.destination-dot {
+  background: #a1a1a6;
+  box-shadow: 0 0 0 5px #a1a1a620;
+}
+
+.stop-dot {
+  background: #707075;
+  box-shadow: 0 0 0 5px #70707520;
+}
+
+.route-line {
+  width: 2px;
+  height: 23px;
+  margin-left: 5px;
+  background: var(--gt-border);
+}
+
+.extra-stop {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-top: 1px solid var(--gt-border);
+}
+
+.remove-stop {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 9px;
+  background: var(--gt-surface-2);
+  color: var(--gt-text);
+  font-size: 20px;
+}
+
+.add-location {
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px dashed var(--gt-muted);
+  border-radius: 12px;
+  background: transparent;
+  color: var(--gt-text);
+  font-size: 0.82rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  span {
+    font-size: 1.2rem;
+  }
+}
+
+/* =========================================
+   SECCIÓN DEL MAPA
+========================================= */
+
+.map-section {
+  margin: 0 16px 20px;
+}
+
+.map-container {
+  width: 100%;
+  height: 220px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  background: var(--gt-surface);
+  touch-action: none;
+  cursor: zoom-in;
+
+  > img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transform-origin: center center;
+    transition: transform 0.1s ease-out;
+    user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: none;
+  }
+}
+
+.map-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.map-marker,
+.map-destination {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 25px;
+  height: 25px;
+  border: 4px solid #ffffff;
+  border-radius: 50%;
+  background: #3a3a3d;
+  color: white;
+  font-size: 8px;
+  box-shadow: 0 2px 10px #00000070;
+}
+
+.map-marker {
+  left: 25%;
+  top: 35%;
+}
+
+.map-destination {
+  right: 22%;
+  bottom: 28%;
+}
+
+.zoom-reset {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 12px;
+  border: 1px solid var(--gt-border);
+  border-radius: 12px;
+  background: #1c1c1ee8;
+  color: var(--gt-text);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.zoom-instruction {
+  margin: 10px 2px 0;
+  color: var(--gt-muted);
+  font-size: 0.74rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* =========================================
+   INFORMACIÓN DEL VIAJE
+========================================= */
+
+.trip-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 10px;
+  margin: 0 16px 22px;
+  padding: 16px 10px;
+  border-radius: 16px;
+  background: var(--gt-surface);
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex: 1;
+
+  small {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--gt-muted);
+    font-size: 0.68rem;
+  }
+
+  strong {
+    color: var(--gt-text);
+    font-size: 0.85rem;
+  }
+}
+
+.info-icon {
+  width: 35px;
+  height: 35px;
+  min-width: 35px;
+  border-radius: 11px;
+  background: var(--gt-surface-2);
+  color: var(--gt-text);
+  display: grid;
+  place-items: center;
+  font-size: 1.15rem;
+}
+
+.info-divider {
+  width: 1px;
+  height: 40px;
+  background: var(--gt-border);
+}
+
+/* =========================================
+   RESUMEN DE PAGO
+========================================= */
+
+.price-summary {
+  margin: 0 16px 22px;
+  padding: 17px;
+  border-radius: 18px;
+  background: var(--gt-surface);
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 11px 0;
+
+  span {
+    color: var(--gt-muted);
+    font-size: 0.85rem;
+  }
+
+  strong {
+    color: var(--gt-text);
+    font-size: 0.88rem;
+    font-weight: 600;
+  }
+}
+
+.price-divider {
+  height: 1px;
+  margin: 8px 0 13px;
+  background: var(--gt-border);
+}
+
+.total-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  span {
+    color: var(--gt-text);
+    font-size: 0.95rem;
+    font-weight: 700;
+  }
+
+  strong {
+    color: var(--gt-text);
+    font-size: 1.15rem;
+    font-weight: 800;
+  }
+}
+
+.price-note {
+  margin: 12px 0 0;
+  color: var(--gt-muted);
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+/* =========================================
+   MÉTODO DE PAGO
+========================================= */
+
+.payment-section {
+  margin: 0 16px 22px;
+}
+
+.payment-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.payment-option {
+  width: 100%;
+  min-height: 68px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid var(--gt-border);
+  border-radius: 15px;
+  background: var(--gt-surface);
+  color: var(--gt-text);
+  text-align: left;
+
+  > span:nth-child(2) {
+    flex: 1;
+  }
+
+  strong {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--gt-text);
+    font-size: 0.88rem;
+  }
+
+  small {
+    display: block;
+    color: var(--gt-muted);
+    font-size: 0.72rem;
+  }
+}
+
+.payment-option.selected {
+  border: 1px solid #ffffff;
+  background: var(--gt-surface-2);
+}
+
+.payment-symbol {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--gt-surface-2);
+  font-size: 1.25rem;
+}
+
+.radio-indicator {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--gt-muted);
+  border-radius: 50%;
+}
+
+.payment-option.selected .radio-indicator {
+  border: 5px solid white;
+  background: var(--gt-surface);
+}
+
+/* =========================================
+   BOTONES DE ACCIÓN
+========================================= */
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  margin: 0 16px 18px;
+}
+
+.confirm-button {
+  width: 100%;
+  min-height: 52px;
+  padding: 0 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border: none;
+  border-radius: 15px;
+  background: #ffffff;
+  color: #1c1c1e;
+
+  font-size: 0.95rem;
+  font-weight: 700;
+
+  span {
+    font-size: 1.3rem;
+  }
+}
+
+.cancel-button {
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid var(--gt-border);
+  border-radius: 15px;
+  background: var(--gt-surface);
+  color: var(--gt-text);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+/* =========================================
+   PIE DE PANTALLA
+========================================= */
+
+.footer-note {
+  margin: 15px 16px;
+  text-align: center;
+  color: var(--gt-muted);
+  font-size: 0.75rem;
+}
+
+/* =========================================
+   MENÚ LATERAL - BOTÓN
+========================================= */
+
+.menu-button {
+  --color: var(--gt-text);
+  --background: var(--gt-surface);
+  --border-radius: 12px;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 360px) {
+
+  .booking-heading h1 {
+    font-size: 1.35rem;
+  }
+
+  .map-container {
+    height: 185px;
+  }
+
+  .location-card,
+  .price-summary {
+    padding: 14px;
+  }
+
+  .trip-info {
+    padding: 13px 8px;
+  }
+
+  .info-item {
+    gap: 6px;
+
+    small {
+      font-size: 0.62rem;
+    }
+
+    strong {
+      font-size: 0.76rem;
+    }
+  }
+}

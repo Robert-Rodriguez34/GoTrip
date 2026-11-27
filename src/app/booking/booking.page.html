@@ -1,0 +1,198 @@
+<ion-content [fullscreen]="true" class="booking-content">
+  <div class="booking-screen">
+
+    <!-- ENCABEZADO CON MENÚ LATERAL -->
+    <header class="top-header">
+      <div class="header-left">
+        <ion-menu-button menu="main-menu" class="menu-button">
+        </ion-menu-button>
+
+        <div class="brand">
+          <img src="assets/icon/logo.png" alt="GoTrip">
+          <span>GoTrip</span>
+        </div>
+      </div>
+
+      <button class="notification-button" type="button">
+        <img src="assets/img/bell.png" alt="Notificaciones">
+      </button>
+    </header>
+
+    <!-- TÍTULO -->
+    <section class="booking-heading">
+      <div>
+        <span class="eyebrow">PLANIFICA TU RECORRIDO</span>
+        <h1>Solicitar viaje</h1>
+        <p>Indica dónde te recogemos y hacia dónde vas.</p>
+      </div>
+      <div class="heading-icon">
+        <img src="assets/img/times.png" alt="">
+      </div>
+    </section>
+
+    <!-- UBICACIONES -->
+    <section class="location-card">
+      <div class="section-title">
+        <h2>Ruta del viaje</h2>
+        <span class="status-label">Nueva ruta</span>
+      </div>
+
+      <div class="location-field">
+        <span class="location-dot pickup-dot"></span>
+        <div class="field-content">
+          <label for="origin">Punto de partida</label>
+          <input id="origin" type="text" placeholder="¿Dónde te recogemos?" [value]="origen"
+            (input)="origen = $any($event.target).value">
+        </div>
+      </div>
+
+      <div class="route-line"></div>
+
+      <div class="location-field">
+        <span class="location-dot destination-dot"></span>
+        <div class="field-content">
+          <label for="destination">Destino</label>
+          <input id="destination" type="text" placeholder="¿A dónde quieres ir?" [value]="destino"
+            (input)="destino = $any($event.target).value">
+        </div>
+      </div>
+
+      @for (parada of paradas; track $index) {
+      <div class="extra-stop">
+        <span class="location-dot stop-dot"></span>
+        <div class="field-content">
+          <label>Parada {{ $index + 1 }}</label>
+          <input type="text" placeholder="Escribe una dirección" [value]="parada"
+            (input)="actualizarParada($index, $event)">
+        </div>
+        <button class="remove-stop" type="button" (click)="eliminarParada($index)"
+          aria-label="Eliminar parada">×</button>
+      </div>
+      }
+
+      <button class="add-location" type="button" (click)="agregarParada()">
+        <span>+</span> Agregar una parada
+      </button>
+    </section>
+
+    <!-- MAPA -->
+    <section class="map-section">
+      <div class="section-title">
+        <h2>Vista del recorrido</h2>
+        <span class="map-label">Mapa</span>
+      </div>
+
+      <div class="map-container" (pointerdown)="iniciarZoom($event)" (pointermove)="moverZoom($event)"
+        (pointerup)="finalizarZoom($event)" (pointercancel)="finalizarZoom($event)"
+        (lostpointercapture)="finalizarZoom($event)">
+
+        <img src="assets/img/location.png" alt="Vista ilustrativa del mapa" [style.transform]="'scale(' + zoom + ')'">
+
+        <div class="map-overlay">
+          <span class="map-marker">●</span>
+          <span class="map-destination">●</span>
+        </div>
+
+        <button class="zoom-reset" type="button" (click)="reiniciarZoom()">
+          <span>↗</span> Restablecer
+        </button>
+      </div>
+
+      <p class="zoom-instruction">
+        <span>ⓘ</span> Utiliza dos dedos para acercar o alejar el mapa.
+      </p>
+    </section>
+
+    <!-- INFORMACIÓN DEL VIAJE -->
+    <section class="trip-info">
+      <div class="info-item">
+        <span class="info-icon">◷</span>
+        <div>
+          <small>Duración estimada</small>
+          <strong>25 - 35 min</strong>
+        </div>
+      </div>
+
+      <div class="info-divider"></div>
+
+      <div class="info-item">
+        <span class="info-icon">⌖</span>
+        <div>
+          <small>Distancia estimada</small>
+          <strong>12.5 km</strong>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESUMEN DE TARIFA -->
+    <section class="price-summary">
+      <div class="section-title">
+        <h2>Resumen de pago</h2>
+        <span class="estimated-label">Estimado</span>
+      </div>
+
+      <div class="price-row">
+        <span>Tarifa del viaje</span>
+        <strong>RD$150.00</strong>
+      </div>
+
+      <div class="price-row">
+        <span>Tiempo de espera</span>
+        <strong>RD$50.00</strong>
+      </div>
+
+      <div class="price-divider"></div>
+
+      <div class="total-row">
+        <span>Total estimado</span>
+        <strong>RD${{ total.toFixed(2) }}</strong>
+      </div>
+
+      <p class="price-note">
+        El precio puede variar según la distancia y las condiciones del recorrido.
+      </p>
+    </section>
+
+    <!-- MÉTODO DE PAGO -->
+    <section class="payment-section">
+      <div class="section-title">
+        <h2>Método de pago</h2>
+      </div>
+
+      <div class="payment-options">
+        <button type="button" class="payment-option" [class.selected]="metodoPago === 'Efectivo'"
+          (click)="seleccionarPago('Efectivo')">
+          <span class="payment-symbol">💵</span>
+          <span>
+            <strong>Efectivo</strong>
+            <small>Pago al conductor</small>
+          </span>
+          <span class="radio-indicator"></span>
+        </button>
+
+        <button type="button" class="payment-option" [class.selected]="metodoPago === 'Tarjeta'"
+          (click)="seleccionarPago('Tarjeta')">
+          <span class="payment-symbol">💳</span>
+          <span>
+            <strong>Tarjeta</strong>
+            <small>Pago electrónico</small>
+          </span>
+          <span class="radio-indicator"></span>
+        </button>
+      </div>
+    </section>
+
+    <!-- BOTONES -->
+    <div class="action-buttons">
+      <button class="confirm-button" type="button" (click)="confirmarViaje()">
+        Confirmar viaje
+        <span>→</span>
+      </button>
+
+      <button class="cancel-button" type="button" (click)="cancelarViaje()">
+        Cancelar solicitud
+      </button>
+    </div>
+    <p class="footer-note">Tu próximo destino comienza con GoTrip.</p>
+  </div>
+</ion-content>

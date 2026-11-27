@@ -1,0 +1,34 @@
+<ion-content [fullscreen]="true">
+  <div class="confirmation-screen">
+
+    <!-- Icono de confirmación -->
+    <div class="success-icon">
+      <img src="assets/img/com.png" alt="Confirmación exitosa">
+    </div>
+
+    <!-- Mensaje -->
+    <h1>¡Viaje Confirmado!</h1>
+
+    <p class="confirmation-message">
+      Tu viaje se ha reservado con éxito
+    </p>
+
+    <!-- Número de viaje -->
+    <div class="trip-number">
+      <span>Número de viaje</span>
+      <strong>#121323244</strong>
+    </div>
+
+    <!-- Botones -->
+    <div class="confirmation-actions">
+      <button class="my-trips-button" routerLink="/activity">
+        Mis viajes
+      </button>
+
+      <button class="home-button" routerLink="/home">
+        Volver al inicio
+      </button>
+    </div>
+
+  </div>
+</ion-content>

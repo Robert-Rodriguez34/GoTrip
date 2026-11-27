@@ -1,0 +1,161 @@
+
+<!-- ENCABEZADO GOTRIP -->
+<ion-header class="profile-header ion-no-border">
+  <ion-toolbar class="profile-toolbar">
+
+    <header class="top-header">
+
+      <div class="header-left">
+        <ion-menu-button
+          menu="main-menu"
+          class="menu-button"
+          aria-label="Abrir menú">
+        </ion-menu-button>
+
+        <div class="brand">
+          <img src="assets/icon/logo.png" alt="GoTrip">
+          <span>GoTrip</span>
+        </div>
+      </div>
+
+      <button
+        class="notification-button"
+        type="button"
+        aria-label="Notificaciones">
+        <img src="assets/img/bell.png" alt="">
+      </button>
+
+    </header>
+
+  </ion-toolbar>
+</ion-header>
+
+
+<!-- CONTENIDO DEL PERFIL -->
+<ion-content class="profile-content">
+
+  <div class="profile-screen">
+
+    <!-- TÍTULO -->
+    <header class="profile-heading">
+      <h1>Mi Perfil</h1>
+      <p>Tus datos y preferencias</p>
+    </header>
+
+    <!-- INFORMACIÓN DEL USUARIO -->
+    <section class="user-profile">
+
+      <div class="avatar-container">
+        <img
+          src="assets/img/image 25.png"
+          alt="Foto de perfil"
+          class="avatar">
+      </div>
+
+      <div class="verified">
+        <ion-icon name="shield-checkmark"></ion-icon>
+        <span>Verificado</span>
+      </div>
+
+      <h2>{{ nombre }}</h2>
+      <p class="user-email">{{ correo }}</p>
+
+    </section>
+
+    <!-- OPCIONES DEL PERFIL -->
+    <section class="profile-options">
+
+      <button
+        class="profile-option"
+        type="button"
+        (click)="abrirOpcion('personal')">
+
+        <div class="option-icon">
+          <ion-icon name="person"></ion-icon>
+        </div>
+
+        <div class="option-text">
+          <strong>Información Personal</strong>
+          <small>Tu nombre y perfil</small>
+        </div>
+
+        <ion-icon
+          class="option-arrow"
+          name="chevron-forward-outline">
+        </ion-icon>
+
+      </button>
+
+      <button
+        class="profile-option"
+        type="button"
+        (click)="abrirOpcion('security')">
+
+        <div class="option-icon">
+          <ion-icon name="lock-closed"></ion-icon>
+        </div>
+
+        <div class="option-text">
+          <strong>Seguridad</strong>
+          <small>Protege tus datos y credenciales</small>
+        </div>
+
+        <ion-icon
+          class="option-arrow"
+          name="chevron-forward-outline">
+        </ion-icon>
+
+      </button>
+
+      <button
+        class="profile-option"
+        type="button"
+        (click)="abrirOpcion('notifications')">
+
+        <div class="option-icon">
+          <ion-icon name="notifications"></ion-icon>
+        </div>
+
+        <div class="option-text">
+          <strong>Notificaciones</strong>
+          <small>Recordatorios y avisos</small>
+        </div>
+
+        <ion-icon
+          class="option-arrow"
+          name="chevron-forward-outline">
+        </ion-icon>
+
+      </button>
+
+      <button
+        class="profile-option"
+        type="button"
+        (click)="abrirOpcion('preferences')">
+
+        <div class="option-icon">
+          <ion-icon name="settings"></ion-icon>
+        </div>
+
+        <div class="option-text">
+          <strong>Preferencias</strong>
+          <small>Tu experiencia a tu manera</small>
+        </div>
+
+        <ion-icon
+          class="option-arrow"
+          name="chevron-forward-outline">
+        </ion-icon>
+
+      </button>
+
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="profile-footer">
+      GoTrip · Tu viaje, a tu manera
+    </footer>
+
+  </div>
+
+</ion-content>
