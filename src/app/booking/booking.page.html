@@ -47,7 +47,6 @@
       </div>
 
       <div class="route-line"></div>
-
       <div class="location-field">
         <span class="location-dot destination-dot"></span>
         <div class="field-content">
@@ -86,8 +85,7 @@
         (pointerup)="finalizarZoom($event)" (pointercancel)="finalizarZoom($event)"
         (lostpointercapture)="finalizarZoom($event)">
 
-        <img src="assets/img/location.png" alt="Vista ilustrativa del mapa" [style.transform]="'scale(' + zoom + ')'">
-
+        <img src="assets/img/location.png" alt="Vista ilustrativa del mapa" [style.transform]="'scale(' + zoom + ')'"
         <div class="map-overlay">
           <span class="map-marker">●</span>
           <span class="map-destination">●</span>
@@ -114,7 +112,6 @@
       </div>
 
       <div class="info-divider"></div>
-
       <div class="info-item">
         <span class="info-icon">⌖</span>
         <div>
@@ -142,7 +139,6 @@
       </div>
 
       <div class="price-divider"></div>
-
       <div class="total-row">
         <span>Total estimado</span>
         <strong>RD${{ total.toFixed(2) }}</strong>

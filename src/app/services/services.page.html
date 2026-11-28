@@ -1,11 +1,5 @@
-
-<!-- =========================================
-     ENCABEZADO GOTRIP
-========================================= -->
-
 <ion-header class="services-header ion-no-border">
   <header class="top-header">
-
     <div class="header-left">
       <ion-menu-button
         menu="main-menu"
@@ -25,14 +19,8 @@
       aria-label="Notificaciones">
       <img src="assets/img/bell.png" alt="">
     </button>
-
   </header>
 </ion-header>
-
-
-<!-- =========================================
-     CONTENIDO DE SERVICIOS
-========================================= -->
 
 <ion-content [fullscreen]="true" class="services-content">
 
@@ -41,10 +29,8 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
-
   <!-- TÍTULO DE LA PÁGINA -->
   <div class="title-row">
-
     <div>
       <span class="eyebrow">DESCUBRE GOTRIP</span>
       <h1>Servicios</h1>
@@ -55,21 +41,15 @@
       size="small"
       class="sort-btn"
       (click)="openSort()">
-
       <ion-icon slot="start" name="chevron-down-outline"></ion-icon>
       Ordenar
-
     </ion-button>
-
   </div>
-
 
   <!-- SERVICIOS PRINCIPALES -->
   <section class="section">
     <div class="grid">
-
       @for (s of mainServices; track s.name) {
-
         <ion-card
           class="service"
           button
@@ -91,25 +71,18 @@
 
           <div class="service-foot">
             <span>{{ s.name }}</span>
-
             <small>
               <ion-icon name="time-outline"></ion-icon>
               {{ s.minutes }} min
             </small>
           </div>
-
         </ion-card>
-
       }
-
     </div>
-
   </section>
-
 
   <!-- OTROS SERVICIOS -->
   <section class="section">
-
     <div class="section-head">
       <div>
         <h3>Otros servicios</h3>
@@ -125,9 +98,7 @@
     </div>
 
     <ion-list lines="none" class="others">
-
       @for (o of otherServices; track o.name) {
-
         <ion-item
           class="other"
           button
@@ -141,12 +112,9 @@
           (contextmenu)="$event.preventDefault()">
 
           <div class="other-body">
-
             <div class="other-text">
               <strong>{{ o.name }}</strong>
-
               <p>{{ o.desc }}</p>
-
               <small>
                 <ion-icon name="time-outline"></ion-icon>
                 {{ o.minutes }} min
@@ -155,23 +123,15 @@
 
             <div class="other-img">
               <img [src]="o.img" [alt]="o.name">
-
               <span [style.background]="o.tag">
                 {{ o.minutes }} min
               </span>
             </div>
-
           </div>
-
         </ion-item>
-
       }
-
     </ion-list>
-
   </section>
 
-  <!-- ESPACIO INFERIOR -->
   <div class="bottom-space"></div>
-
 </ion-content>
