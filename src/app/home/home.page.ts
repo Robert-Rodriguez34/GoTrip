@@ -100,8 +100,6 @@ export class HomePage {
   ];
 
   trips: Trip[] = [...this.baseTrips];
-
-  // Control del long-press
   private pressTimer?: ReturnType<typeof setTimeout>;
   private startX = 0;
   private startY = 0;
@@ -124,7 +122,7 @@ export class HomePage {
     });
   }
 
-  // ---------- GESTO 2: Pull-to-refresh ----------
+  //Pull-to-refres
   handleRefresh(event: CustomEvent) {
     setTimeout(async () => {
       this.trips = [...this.baseTrips];
@@ -133,14 +131,14 @@ export class HomePage {
     }, 1200);
   }
 
-  // ---------- GESTO 1: Swipe para eliminar ----------
+  //Swipe para eliminar 
   async eliminar(trip: Trip, sliding: IonItemSliding) {
     await sliding.close();
     this.trips = this.trips.filter((t) => t.id !== trip.id);
     await this.showToast('Viaje eliminado');
   }
 
-  // ---------- GESTO 4: Long-press con menú contextual ----------
+  //Long-press con menú contextual
   startPress(ev: PointerEvent, trip: Trip) {
     this.startX = ev.clientX;
     this.startY = ev.clientY;

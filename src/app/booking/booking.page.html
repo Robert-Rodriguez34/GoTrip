@@ -85,7 +85,7 @@
         (pointerup)="finalizarZoom($event)" (pointercancel)="finalizarZoom($event)"
         (lostpointercapture)="finalizarZoom($event)">
 
-        <img src="assets/img/location.png" alt="Vista ilustrativa del mapa" [style.transform]="'scale(' + zoom + ')'"
+        <img src="assets/img/location.png" alt="Vista ilustrativa del mapa" [style.transform]="'scale(' + zoom + ')'">
         <div class="map-overlay">
           <span class="map-marker">●</span>
           <span class="map-destination">●</span>

@@ -18,19 +18,15 @@ import {
 })
 
 export class BookingPage {
-
-  // Ubicaciones
   origen = '';
   destino = '';
   paradas: string[] = [];
 
-  // Información de pago
   tarifa = 150;
   tiempoEspera = 50;
   total = this.tarifa + this.tiempoEspera;
   metodoPago: 'Efectivo' | 'Tarjeta' = 'Efectivo';
 
-  // Zoom del mapa
   zoom = 1;
   private pointers = new Map<number, { x: number; y: number }>();
   private distanciaInicial = 0;
@@ -63,7 +59,6 @@ export class BookingPage {
     this.metodoPago = metodo;
   }
 
-  // Iniciar gesto de zoom
   iniciarZoom(event: PointerEvent): void {
     const elemento = event.currentTarget as HTMLElement;
 
@@ -75,7 +70,6 @@ export class BookingPage {
     try {
       elemento.setPointerCapture(event.pointerId);
     } catch {
-      // El navegador puede no permitir capturar el puntero.
     }
 
     if (this.pointers.size === 2) {
@@ -120,7 +114,6 @@ export class BookingPage {
     );
   }
 
-  // Finalizar gesto
   finalizarZoom(event: PointerEvent): void {
     this.pointers.delete(event.pointerId);
 

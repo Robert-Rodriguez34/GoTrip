@@ -1,4 +1,3 @@
-
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -31,11 +30,6 @@ import {
   calendarOutline,
 } from 'ionicons/icons';
 
-
-// =====================================
-// INTERFAZ DE SERVICIOS
-// =====================================
-
 interface Service {
   name: string;
   minutes: number;
@@ -44,11 +38,6 @@ interface Service {
   tag?: string;
   route?: string;
 }
-
-
-// =====================================
-// COMPONENTE SERVICES
-// =====================================
 
 @Component({
   selector: 'app-services',
@@ -72,13 +61,7 @@ interface Service {
   ],
 })
 
-
 export class ServicesPage {
-
-  // =====================================
-  // SERVICIOS PRINCIPALES
-  // =====================================
-
   private readonly baseMain: Service[] = [
 
     {
@@ -108,16 +91,9 @@ export class ServicesPage {
       img: 'assets/img/comida.png',
       route: '/booking'
     },
-
   ];
 
   mainServices: Service[] = [...this.baseMain];
-
-
-  // =====================================
-  // OTROS SERVICIOS
-  // =====================================
-
   otherServices: Service[] = [
 
     {
@@ -151,31 +127,19 @@ export class ServicesPage {
       img: 'assets/img/image 17.png',
       tag: '#1f3f9f',
     },
-
   ];
 
 
-  // =====================================
   // CONTROL DE LONG PRESS
-  // =====================================
 
   private pressTimer?: ReturnType<typeof setTimeout>;
-
   private startX = 0;
   private startY = 0;
-
   private readonly LONG_PRESS_MS = 600;
   private readonly MOVE_TOLERANCE = 10;
-
   private longPressTriggered = false;
   private suppressNextClick = false;
-
   private clickResetTimer?: ReturnType<typeof setTimeout>;
-
-
-  // =====================================
-  // CONSTRUCTOR
-  // =====================================
 
   constructor(
     private router: Router,
@@ -192,62 +156,37 @@ export class ServicesPage {
       informationCircleOutline,
       calendarOutline,
     });
-
   }
 
-
-  // =====================================
   // PULL TO REFRESH
-  // =====================================
-
   async handleRefresh(event: CustomEvent) {
-
     setTimeout(async () => {
-
       this.mainServices = [...this.baseMain];
-
       (event.target as HTMLIonRefresherElement).complete();
-
       await this.showToast('Servicios actualizados');
-
     }, 1200);
-
   }
-
-
-  // =====================================
-  // ORDENAR SERVICIOS
-  // =====================================
 
   async openSort() {
-
     const sheet = await this.actionSheetCtrl.create({
-
       header: 'Ordenar servicios',
-
       buttons: [
 
         {
           text: 'Más rápido primero',
-
           handler: () => {
-
             this.mainServices = [...this.mainServices].sort(
               (a, b) => a.minutes - b.minutes
             );
-
           },
         },
 
         {
           text: 'Nombre (A-Z)',
-
           handler: () => {
-
             this.mainServices = [...this.mainServices].sort(
               (a, b) => a.name.localeCompare(b.name)
             );
-
           },
         },
 
@@ -255,107 +194,61 @@ export class ServicesPage {
           text: 'Cancelar',
           role: 'cancel',
         },
-
       ],
-
     });
 
     await sheet.present();
 
   }
 
-
-  // =====================================
   // INICIAR PULSACIÓN PROLONGADA
-  // =====================================
-
   startPress(ev: PointerEvent, service: Service) {
-
     const target = ev.target as HTMLElement;
-
     if (target.closest('ion-button, button, a')) {
       return;
     }
 
     this.cancelPress();
-
     this.longPressTriggered = false;
-
     this.startX = ev.clientX;
     this.startY = ev.clientY;
-
     this.pressTimer = setTimeout(() => {
-
       this.longPressTriggered = true;
-
       this.openServiceOptions(service);
-
     }, this.LONG_PRESS_MS);
-
   }
 
-
-  // =====================================
   // DETECTAR MOVIMIENTO
-  // =====================================
 
   movePress(ev: PointerEvent) {
-
     const moved =
       Math.abs(ev.clientX - this.startX) > this.MOVE_TOLERANCE ||
       Math.abs(ev.clientY - this.startY) > this.MOVE_TOLERANCE;
-
     if (moved) {
       this.cancelPress();
     }
-
   }
 
-
-  // =====================================
-  // FINALIZAR PULSACIÓN
-  // =====================================
-
   endPress() {
-
     this.cancelPress();
-
     if (this.longPressTriggered) {
-
       this.suppressNextClick = true;
-
       this.longPressTriggered = false;
-
       if (this.clickResetTimer) {
         clearTimeout(this.clickResetTimer);
       }
-
       this.clickResetTimer = setTimeout(() => {
-
         this.suppressNextClick = false;
         this.clickResetTimer = undefined;
-
       }, 500);
-
     }
-
   }
 
-
-  // =====================================
-  // CANCELAR TEMPORIZADOR
-  // =====================================
-
   private cancelPress() {
-
     if (this.pressTimer) {
-
       clearTimeout(this.pressTimer);
-
       this.pressTimer = undefined;
-
     }
-
   }
 
 
@@ -364,134 +257,79 @@ export class ServicesPage {
   // =====================================
 
   async openServiceOptions(service: Service) {
-
     const sheet = await this.actionSheetCtrl.create({
-
       header: service.name,
-
       subHeader: service.desc ||
         `Tiempo estimado: ${service.minutes} minutos`,
-
       buttons: [
-
         {
           text: 'Ver detalles',
           icon: 'information-circle-outline',
-
           handler: () => {
-
             this.showToast(
               `${service.name}: tiempo estimado ${service.minutes} minutos`
             );
-
           }
-
         },
 
         {
           text: 'Reservar servicio',
           icon: 'calendar-outline',
-
           handler: () => {
-
             this.navigateService(service);
-
           }
-
         },
 
         {
           text: 'Cancelar',
           role: 'cancel'
-
         }
-
       ]
-
     });
 
     await sheet.present();
-
   }
 
-
-  // =====================================
   // ABRIR SERVICIO
-  // =====================================
-
   openService(service: Service) {
-
     if (this.suppressNextClick) {
-
       this.suppressNextClick = false;
-
       if (this.clickResetTimer) {
         clearTimeout(this.clickResetTimer);
         this.clickResetTimer = undefined;
       }
 
       return;
-
     }
 
     this.navigateService(service);
-
   }
 
-
-  // =====================================
-  // NAVEGACIÓN DEL SERVICIO
-  // =====================================
-
   private navigateService(service: Service) {
-
     if (service.route) {
-
       this.router.navigateByUrl(service.route);
-
     } else {
-
       this.showToast(
         `${service.name} estará disponible pronto`
       );
-
     }
-
   }
 
-
-  // =====================================
-  // MOSTRAR MENSAJES
-  // =====================================
-
   private async showToast(message: string) {
-
     const toast = await this.toastCtrl.create({
-
       message: message,
       duration: 1600,
       position: 'bottom',
       color: 'dark',
-
     });
 
     await toast.present();
-
   }
 
-
-  // =====================================
-  // LIMPIAR TEMPORIZADORES
-  // =====================================
-
   ngOnDestroy() {
-
     this.cancelPress();
-
     if (this.clickResetTimer) {
       clearTimeout(this.clickResetTimer);
     }
-
   }
-
 }
